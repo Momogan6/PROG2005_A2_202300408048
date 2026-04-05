@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory System (TypeScript)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Inventory Management System</h1>
+  <div id="message"></div>
+
+  <!-- 表单 -->
+  <div class="form-container">
+    <input type="text" id="itemId" placeholder="Item ID *" required>
+    <input type="text" id="itemName" placeholder="Item Name *" required>
+    <select id="category">
+      <option value="">Select Category</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Furniture">Furniture</option>
+      <option value="Clothing">Clothing</option>
+      <option value="Tools">Tools</option>
+      <option value="Miscellaneous">Miscellaneous</option>
+    </select>
+    <input type="number" id="quantity" placeholder="Quantity *" min="0" required>
+    <input type="number" id="price" placeholder="Price *" min="0" step="0.01" required>
+    <input type="text" id="supplier" placeholder="Supplier *" required>
+    <select id="stockStatus">
+      <option value="">Select Status</option>
+      <option value="In Stock">In Stock</option>
+      <option value="Low Stock">Low Stock</option>
+      <option value="Out of Stock">Out of Stock</option>
+    </select>
+    <select id="popularItem">
+      <option value="">Popular?</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    <textarea id="comment" placeholder="Comment (optional)"></textarea>
+    <button onclick="addOrUpdateItem()">Save Item</button>
+    <button onclick="resetForm()">Reset</button>
+  </div>
+
+  <!-- 搜索 -->
+  <div class="search">
+    <input type="text" id="searchName" placeholder="Search by name...">
+    <button onclick="searchItems()">Search</button>
+    <button onclick="displayAllItems()">Show All</button>
+    <button onclick="displayPopularItems()">Show Popular</button>
+  </div>
+
+  <!-- 表格 -->
+  <table id="itemsTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Category</th><th>Qty</th><th>Price</th>
+        <th>Supplier</th><th>Status</th><th>Popular</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="itemsBody"></tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
