@@ -1,0 +1,46 @@
+<div class="card">
+  <h2>Manage Inventory Items</h2>
+  <p class="msg">{{ message }}</p>
+
+  <input [(ngModel)]="currentItem.itemId" placeholder="Item ID (required)" />
+  <input [(ngModel)]="currentItem.itemName" placeholder="Item Name (required)" />
+
+  <select [(ngModel)]="currentItem.category">
+    <option value="Electronics">Electronics</option>
+    <option value="Furniture">Furniture</option>
+    <option value="Clothing">Clothing</option>
+    <option value="Tools">Tools</option>
+    <option value="Miscellaneous">Miscellaneous</option>
+  </select>
+
+  <input type="number" [(ngModel)]="currentItem.quantity" placeholder="Quantity" />
+  <input type="number" [(ngModel)]="currentItem.price" placeholder="Price" />
+  <input [(ngModel)]="currentItem.supplierName" placeholder="Supplier Name" />
+
+  <select [(ngModel)]="currentItem.stockStatus">
+    <option value="In Stock">In Stock</option>
+    <option value="Low Stock">Low Stock</option>
+    <option value="Out of Stock">Out of Stock</option>
+  </select>
+
+  <select [(ngModel)]="currentItem.popularItem">
+    <option value="Yes">Popular Item: Yes</option>
+    <option value="No">Popular Item: No</option>
+  </select>
+
+  <textarea [(ngModel)]="currentItem.comment" placeholder="Comment (optional)"></textarea>
+
+  <button (click)="saveItem()">{{ isEdit ? 'Update Item' : 'Add Item' }}</button>
+  <button (click)="reset()">Reset Form</button>
+</div>
+
+<div class="card" *ngIf="inventory.length > 0">
+  <h3>Item List</h3>
+  <div class="item-row" *ngFor="let item of inventory">
+    <span>{{ item.itemName }} ({{ item.category }})</span>
+    <div class="btn-group">
+      <button (click)="editItem(item)">Edit</button>
+      <button (click)="deleteItem(item.itemId)">Delete</button>
+    </div>
+  </div>
+</div>

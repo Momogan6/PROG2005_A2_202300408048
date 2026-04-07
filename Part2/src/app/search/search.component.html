@@ -1,0 +1,16 @@
+<div class="card">
+  <h2>Search Items</h2>
+  <input [(ngModel)]="keyword" placeholder="Search by item name" />
+  <button (click)="search()">Search</button>
+
+  <div *ngIf="results.length > 0">
+    <h3>Results</h3>
+    <div class="item-row" *ngFor="let r of results">
+      {{ r.itemName }} | {{ r.stockStatus }}
+    </div>
+  </div>
+
+  <div *ngIf="keyword && results.length === 0">
+    <p>No items found.</p>
+  </div>
+</div>
