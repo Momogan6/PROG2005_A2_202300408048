@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule // 必须导入路由模块，才能用routerLink和router-outlet
+    RouterModule 
   ]
 })
 export class AppComponent {
